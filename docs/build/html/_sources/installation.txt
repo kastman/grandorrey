@@ -1,7 +1,7 @@
 Installation
 =============
 
-The grandOrrey helpers require several python numerical libraries. However,
+The orrey helpers require several python numerical libraries. However,
 the setup is configured to install all dependencies already.
 
 If conda is setup (recommended), run this first::
@@ -10,7 +10,7 @@ If conda is setup (recommended), run this first::
 
 To install (regardless of whether you have conda or not), run::
 
-    pip install grandorrey
+    pip install orrey
 
 If you don't run the `conda install` first, pip will try to install the required
 packages on its own. Running `conda install` first is preferred (easier

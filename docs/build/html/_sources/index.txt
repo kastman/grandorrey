@@ -8,7 +8,7 @@ Grand Orrey
 
 Small helpers for MRI daily tasks.
 
-First see ``installation`` (tl;dr: `pip install grandorrey`).
+First see ``installation`` (tl;dr: `pip install orrey`).
 
 The only current tool is ``modelCorr``, a small tool to print correlations within
 design files.

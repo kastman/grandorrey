@@ -7,7 +7,7 @@ def readme():
 
 
 setup(
-    name='grandorrey',
+    name='orrey',
     version='0.0.1',
     description='Utilities for daily GLM tasks',
     long_description=readme(),
@@ -18,14 +18,14 @@ setup(
         'Intended Audience :: Science/Research',
         'Topic :: Scientific/Engineering',
     ],
-    url='http://github.com/kastman/grandorrey',
+    url='http://github.com/kastman/orrey',
     author='Erik Kastman',
     author_email='erik.kastman@gmail.com',
     license='GPL',
     packages=find_packages(exclude=['docs', 'tests']),
     entry_points={
         'console_scripts': [
-            'modelCorr = grandorrey.cli:modelCorr',
+            'modelCorr = orrey.cli:modelCorr',
         ]
     },
     scripts=[],

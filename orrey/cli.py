@@ -1,5 +1,5 @@
 import argparse
-import grandorrey
+import orrey
 import sys
 
 #############################
@@ -16,6 +16,6 @@ def modelCorrArgs(args):
 def modelCorr():
     args = modelCorrArgs(sys.argv[1:])
 
-    mod = grandorrey.model.ModelWrapper(args.designfiles)
+    mod = orrey.model.ModelWrapper(args.designfiles)
     mod._saveDesign()
     mod._saveFigure()
