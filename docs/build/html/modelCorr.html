@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>modelCorr &mdash; Grand Orrey 1.1.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Grand Orrey 1.1.1 documentation" href="index.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="modelcorr">
+<h1>modelCorr<a class="headerlink" href="#modelcorr" title="Permalink to this headline">¶</a></h1>
+<p>A simple command line to show correlations of fMRI Model Design. At present
+(version 0.0.1) this really doesn&#8217;t do more than output a static png and design
+matrix, though more features are planned including calculation of the model&#8217;s
+variance inflation factor (VIF) for contrasts of interest and possibly some
+python ports of model optimization. But hey, release [very] early and often.</p>
+<p>Usage:</p>
+<p>Step 1. Create a Design file where rows are events with <strong>at least</strong> two columns (see the <a class="reference external" href="http://www.cns.nyu.edu/~mwaskom/software/lyman/experiments.html#the-design-file">Lyman Design File spec</a> for more info):</p>
+<ul class="simple">
+<li><strong>onset</strong> : Time in seconds from trigger (first acquisition of first volume)</li>
+<li><strong>condition</strong>: Condition / column name</li>
+</ul>
+<p>Optionally, include a 1-based <strong>run</strong> column to include several split runs,
+or a <strong>duration</strong> column to model durations. This does not currently support
+the addition of pre-computed regressors (derivatives, etc.).</p>
+<p>For toy example, this would model picture presentations and the start of blocks,
+creating a design matrix of 4 columns (blockAStart, blockBStart, picA, and picB):</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="41%" />
+<col width="59%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Onset</td>
+<td>Condition</td>
+</tr>
+<tr class="row-even"><td>10</td>
+<td>blockAStart</td>
+</tr>
+<tr class="row-odd"><td>12</td>
+<td>picA</td>
+</tr>
+<tr class="row-even"><td>14</td>
+<td>picA</td>
+</tr>
+<tr class="row-odd"><td>20</td>
+<td>blockBStart</td>
+</tr>
+<tr class="row-even"><td>22</td>
+<td>picB</td>
+</tr>
+<tr class="row-odd"><td>24</td>
+<td>picB</td>
+</tr>
+</tbody>
+</table>
+<p>Step 2. Run <code class="docutils literal"><span class="pre">modelCorr</span></code> from the command line to create design and png of model
+correlations.</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>modelCorr run1.csv
+</pre></div>
+</div>
+<p>... outputs a png and csv for the design file <em>run1.csv</em>:</p>
+<img alt="_images/collinearity.png" src="_images/collinearity.png" />
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="installation.html" title="previous chapter">Installation</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/modelCorr.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Erik Kastman.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/modelCorr.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
