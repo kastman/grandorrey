@@ -31,5 +31,4 @@ setup(
     scripts=[],
     install_requires=['pandas', 'seaborn', 'moss'],
     test_suite='nose.collector',
-    tests_require=['nose'],
-    zip_safe=False)
+    tests_require=['nose'])
